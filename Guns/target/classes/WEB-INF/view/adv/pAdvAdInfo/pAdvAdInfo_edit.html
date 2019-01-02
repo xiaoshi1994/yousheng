@@ -1,0 +1,54 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="" value="${item.id}" underline="true"/>
+                            <#input id="adPositionId" name="广告位置id" value="${item.adPositionId}" underline="true"/>
+                            <#input id="adSn" name="广告位编号" value="${item.adSn}" underline="true"/>
+                            <#input id="name" name="广告名称" value="${item.name}" underline="true"/>
+                            <#input id="source" name="数据来源" value="${item.source}" underline="true"/>
+                            <#input id="type" name="对象类型，0：无；1：产品；2：品牌店铺；3：外部链接" value="${item.type}" underline="true"/>
+                            <#input id="objectId" name="引用对象的id，" value="${item.objectId}" underline="true"/>
+                            <#input id="startTime" name="开始时间" value="${item.startTime}" underline="true"/>
+                            <#input id="endTime" name="结束时间" value="${item.endTime}" underline="true"/>
+                            <#input id="mainTitle" name="主标题" value="${item.mainTitle}" underline="true"/>
+                            <#input id="subHeading" name="副标题" value="${item.subHeading}" underline="true"/>
+                            <#input id="imageSrc" name="图片" value="${item.imageSrc}" underline="true"/>
+                            <#input id="imageAlt" name="图片属性" value="${item.imageAlt}" underline="true"/>
+                            <#input id="backgroundColor" name="背景颜色" value="${item.backgroundColor}" underline="true"/>
+                            <#input id="url" name="链接URL" value="${item.url}" />
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="status" name="状态，0：未开始；1：进行中；2：已结束" value="${item.status}" underline="true"/>
+                            <#input id="clickCount" name="点击数" value="${item.clickCount}" underline="true"/>
+                            <#input id="area" name="区域编码" value="${item.area}" underline="true"/>
+                            <#input id="isAll" name="0:不是全部有效 1：全部有效" value="${item.isAll}" underline="true"/>
+                            <#input id="sortNum" name="排序" value="${item.sortNum}" underline="true"/>
+                            <#input id="remark" name="备注" value="${item.remark}" underline="true"/>
+                            <#input id="isEnable" name="是否启用,0不启用，1启用" value="${item.isEnable}" underline="true"/>
+                            <#input id="creator" name="创建人" value="${item.creator}" underline="true"/>
+                            <#input id="modifier" name="修改人" value="${item.modifier}" underline="true"/>
+                            <#input id="created" name="创建时间" value="${item.created}" underline="true"/>
+                            <#input id="modified" name="最后修改时间" value="${item.modified}" underline="true"/>
+                            <#input id="isDeleted" name="0正常，1删除" value="${item.isDeleted}" underline="true"/>
+                            <#input id="goodsCateId" name="关联的一级商品分类ID" value="${item.goodsCateId}" underline="true"/>
+                            <#input id="isRelateGoodsCate" name="是否关联商品分类" value="${item.isRelateGoodsCate}" />
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="PAdvAdInfoInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="PAdvAdInfoInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/adv/pAdvAdInfo/pAdvAdInfo_info.js"></script>
+@}

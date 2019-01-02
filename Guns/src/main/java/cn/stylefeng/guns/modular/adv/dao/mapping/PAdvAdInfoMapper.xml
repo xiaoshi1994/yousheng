@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.system.dao.PAdvAdInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.adv.dao.PAdvAdInfoMapper">
+        <id column="id" property="id" />
+        <result column="ad_position_id" property="adPositionId" />
+        <result column="ad_sn" property="adSn" />
+        <result column="name" property="name" />
+        <result column="source" property="source" />
+        <result column="type" property="type" />
+        <result column="object_id" property="objectId" />
+        <result column="start_time" property="startTime" />
+        <result column="end_time" property="endTime" />
+        <result column="main_title" property="mainTitle" />
+        <result column="sub_heading" property="subHeading" />
+        <result column="image_src" property="imageSrc" />
+        <result column="image_alt" property="imageAlt" />
+        <result column="background_color" property="backgroundColor" />
+        <result column="url" property="url" />
+        <result column="status" property="status" />
+        <result column="click_count" property="clickCount" />
+        <result column="area" property="area" />
+        <result column="is_all" property="isAll" />
+        <result column="sort_num" property="sortNum" />
+        <result column="remark" property="remark" />
+        <result column="is_enable" property="isEnable" />
+        <result column="creator" property="creator" />
+        <result column="modifier" property="modifier" />
+        <result column="created" property="created" />
+        <result column="modified" property="modified" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="goods_cate_id" property="goodsCateId" />
+        <result column="is_relate_goods_cate" property="isRelateGoodsCate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, ad_position_id, ad_sn, name, source, type, object_id, start_time, end_time, main_title, sub_heading, image_src, image_alt, background_color, url, status, click_count, area, is_all, sort_num, remark, is_enable, creator, modifier, created, modified, is_deleted, goods_cate_id, is_relate_goods_cate
+    </sql>
+
+</mapper>
