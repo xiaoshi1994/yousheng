@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : local
-Source Server Version : 50638
+Source Server         : 本地mysql数据库
+Source Server Version : 50614
 Source Host           : localhost:3306
 Source Database       : guns
 
 Target Server Type    : MYSQL
-Target Server Version : 50638
+Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2019-01-30 16:06:22
+Date: 2019-04-03 19:03:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -81,6 +81,54 @@ INSERT INTO `p_adv_ad_info` VALUES ('4', '4', 'GG0000000004', '家乡山水', '4
 INSERT INTO `p_adv_ad_info` VALUES ('5', '5', 'GG0000000005', '金牛', '4', '3', null, '2018-12-26 14:51:38', '2018-12-26 14:51:38', '', '', '[\"http://resource.iwonly.com/shop-res/e753b83f-c0e8-4b89-bff6-218e187eba4a\"]', null, null, 'http://app-verify.iwonly.com/admin/', '1', '0', '[]', '1', '2', '', '1', '1', '1', '2018-12-26 14:51:30', '2018-12-26 14:51:30', '0', '79', '1');
 
 -- ----------------------------
+-- Table structure for p_team
+-- ----------------------------
+DROP TABLE IF EXISTS `p_team`;
+CREATE TABLE `p_team` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(36) DEFAULT NULL COMMENT '团队名称',
+  `user_id` int(11) DEFAULT NULL COMMENT '队长id',
+  `answer_count` int(11) DEFAULT NULL COMMENT '总接单数量',
+  `status` int(2) DEFAULT NULL COMMENT '状态：1：待审核  2：正常运行  3：被锁定   4：审核驳回',
+  `creator` int(11) DEFAULT NULL,
+  `modifier` int(11) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `is_deleted` int(2) DEFAULT NULL,
+  `is_enable` int(1) DEFAULT NULL,
+  `money` bigint(20) DEFAULT NULL COMMENT '总金额',
+  `finish_answer_count` int(11) DEFAULT NULL COMMENT '总完成数量',
+  `descs` varchar(64) DEFAULT NULL COMMENT '描述，包含审核失败的原因',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='团队表';
+
+-- ----------------------------
+-- Records of p_team
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for p_team_user
+-- ----------------------------
+DROP TABLE IF EXISTS `p_team_user`;
+CREATE TABLE `p_team_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `p_u_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL COMMENT '司机id',
+  `team_id` int(11) DEFAULT NULL COMMENT '团对id',
+  `creator` int(11) DEFAULT NULL COMMENT '创建人',
+  `modifier` int(11) DEFAULT NULL COMMENT '修改人',
+  `created` datetime DEFAULT NULL COMMENT '创建时间',
+  `modified` datetime DEFAULT NULL COMMENT '修改时间',
+  `is_deleted` int(2) DEFAULT NULL COMMENT '是否删除 1 不删除 0：删除',
+  `is_enable` char(10) DEFAULT NULL COMMENT '是否可用 1 可用   0：不可用',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='车队用户成员表';
+
+-- ----------------------------
+-- Records of p_team_user
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for p_user_base_info
 -- ----------------------------
 DROP TABLE IF EXISTS `p_user_base_info`;
@@ -90,7 +138,7 @@ CREATE TABLE `p_user_base_info` (
   `mobile` varchar(11) NOT NULL DEFAULT '' COMMENT '用户手机号',
   `password` varchar(100) NOT NULL COMMENT '密码',
   `salt` varchar(45) DEFAULT NULL COMMENT 'md5密码盐（考虑到APP端密码加密规则的兼容性，此值暂不使用）',
-  `nickname` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '昵称',
+  `nickname` varchar(50) DEFAULT NULL,
   `head_thumb` varchar(1000) DEFAULT NULL COMMENT '头像',
   `location_area` varchar(255) DEFAULT NULL COMMENT '位置数据',
   `region` varchar(30) DEFAULT NULL COMMENT '地区',
@@ -117,14 +165,8 @@ CREATE TABLE `p_user_base_info` (
   `modifier` int(11) NOT NULL DEFAULT '0' COMMENT '修改人',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后修改时间',
-  `is_deleted` int(11) NOT NULL DEFAULT '0' COMMENT '0正常，1删除',
-  PRIMARY KEY (`id`),
-  KEY `idx_p_user_base_info` (`mobile`,`region`,`unionid`,`name`,`is_enable`,`is_deleted`) USING BTREE,
-  KEY `idx_p_user_base_info_mobile` (`mobile`) USING BTREE,
-  KEY `idx_p_user_base_info_name` (`name`) USING BTREE,
-  KEY `idx_p_user_base_info_region` (`region`) USING BTREE,
-  KEY `idx_p_user_base_info_unionid` (`unionid`) USING BTREE,
-  KEY `idx_p_user_base_info_is_enable` (`is_enable`,`is_deleted`) USING BTREE
+  `is_deleted` int(2) NOT NULL DEFAULT '0' COMMENT '0正常，1删除',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='乘客和司机表';
 
 -- ----------------------------
@@ -146,7 +188,7 @@ CREATE TABLE `p_user_common_trip` (
   `modifier` int(11) NOT NULL DEFAULT '0' COMMENT '修改人',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后修改时间',
-  `is_deleted` int(11) NOT NULL DEFAULT '0' COMMENT '0正常，1删除',
+  `is_deleted` int(2) NOT NULL DEFAULT '0' COMMENT '0正常，1删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='常用行程表';
 
@@ -4230,7 +4272,7 @@ CREATE TABLE `sys_login_log` (
   `message` text COMMENT '具体消息',
   `ip` varchar(255) DEFAULT NULL COMMENT '登录ip',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=235 DEFAULT CHARSET=utf8 COMMENT='登录记录';
+) ENGINE=InnoDB AUTO_INCREMENT=236 DEFAULT CHARSET=utf8 COMMENT='登录记录';
 
 -- ----------------------------
 -- Records of sys_login_log
@@ -4253,6 +4295,7 @@ INSERT INTO `sys_login_log` VALUES ('231', '登录日志', '1', '2018-12-27 14:2
 INSERT INTO `sys_login_log` VALUES ('232', '登录日志', '1', '2018-12-27 18:21:55', '成功', null, '0:0:0:0:0:0:0:1');
 INSERT INTO `sys_login_log` VALUES ('233', '退出日志', '1', '2018-12-27 18:22:00', '成功', null, '0:0:0:0:0:0:0:1');
 INSERT INTO `sys_login_log` VALUES ('234', '登录日志', '1', '2018-12-27 18:22:02', '成功', null, '0:0:0:0:0:0:0:1');
+INSERT INTO `sys_login_log` VALUES ('235', '登录日志', '1', '2019-03-27 11:36:22', '成功', null, '0:0:0:0:0:0:0:1');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -4533,6 +4576,7 @@ INSERT INTO `sys_user` VALUES ('46', null, 'manager', 'b53cac62e7175637d4beb3b16
 DROP TABLE IF EXISTS `s_driving_record`;
 CREATE TABLE `s_driving_record` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `p_u_id2` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL COMMENT '乘客用户id',
   `driver_id` int(11) DEFAULT NULL COMMENT '司机用户id',
   `start_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始时间',
@@ -4540,7 +4584,7 @@ CREATE TABLE `s_driving_record` (
   `end_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '结束时间',
   `start_place` varchar(100) DEFAULT '' COMMENT '开始地点',
   `end_place` varchar(100) DEFAULT '' COMMENT '结束地点',
-  `status` int(3) DEFAULT NULL COMMENT '订单状态 1:待接单，2:已接单 ，3：进行中 ，4：已完成 , 5:已评价',
+  `status` int(4) DEFAULT NULL COMMENT '订单状态 0:已取消, 1:待接单，2:已接单 ，3：进行中 ，4：已完成 , 5:已评价 ,',
   `totle_price` decimal(13,0) DEFAULT NULL COMMENT '总价格',
   `discount_price` decimal(13,0) DEFAULT NULL COMMENT '优惠价格',
   `pay_price` decimal(13,0) DEFAULT NULL COMMENT '实付价格',
@@ -4548,9 +4592,10 @@ CREATE TABLE `s_driving_record` (
   `remark` varchar(500) DEFAULT '' COMMENT '备注',
   `creator` int(11) NOT NULL DEFAULT '0' COMMENT '创建人',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `is_deleted` int(11) NOT NULL DEFAULT '0' COMMENT '0正常，1删除',
+  `is_deleted` int(2) NOT NULL DEFAULT '0' COMMENT '0正常，1删除',
+  `type` int(2) DEFAULT NULL COMMENT '发布类型：1 ：乘客发布  2：司机发布',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='行车记录表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='行乘记录表';
 
 -- ----------------------------
 -- Records of s_driving_record
@@ -4562,16 +4607,12 @@ CREATE TABLE `s_driving_record` (
 DROP TABLE IF EXISTS `s_driving_trajectory`;
 CREATE TABLE `s_driving_trajectory` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `drive_id` int(11) DEFAULT NULL COMMENT '轨迹id',
-  `start_place` varchar(50) DEFAULT NULL COMMENT '经度',
+  `drive_id` int(11) DEFAULT NULL COMMENT '行程记录id 就是订单id',
   `lng_rat` double(20,6) DEFAULT NULL COMMENT '经度',
   `lat_rat` double(20,6) DEFAULT NULL COMMENT '纬度',
-  `is_enable` int(1) NOT NULL DEFAULT '1' COMMENT '是否启用,0不启用，1启用',
   `creator` int(11) NOT NULL DEFAULT '0' COMMENT '创建人',
-  `modifier` int(11) NOT NULL DEFAULT '0' COMMENT '修改人',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最后修改时间',
-  `is_deleted` int(11) NOT NULL DEFAULT '0' COMMENT '0正常，1删除',
+  `is_deleted` int(2) NOT NULL DEFAULT '0' COMMENT '0正常，1删除',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='轨迹信息表';
 
