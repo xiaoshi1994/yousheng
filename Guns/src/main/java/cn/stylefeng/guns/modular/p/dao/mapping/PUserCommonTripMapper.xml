@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.p.dao.PUserCommonTripMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.p.model.PUserCommonTrip">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="start_place" property="startPlace" />
+        <result column="end_place" property="endPlace" />
+        <result column="remark" property="remark" />
+        <result column="is_enable" property="isEnable" />
+        <result column="creator" property="creator" />
+        <result column="modifier" property="modifier" />
+        <result column="created" property="created" />
+        <result column="modified" property="modified" />
+        <result column="is_deleted" property="isDeleted" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, start_place, end_place, remark, is_enable, creator, modifier, created, modified, is_deleted
+    </sql>
+
+</mapper>

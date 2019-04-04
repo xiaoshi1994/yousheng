@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.system.dao.SysCityMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.system.model.SysCity">
+        <id column="id" property="id" />
+        <result column="city" property="city" />
+        <result column="lng" property="lng" />
+        <result column="lat" property="lat" />
+        <result column="qu" property="qu" />
+        <result column="city_code" property="cityCode" />
+        <result column="parent_code" property="parentCode" />
+        <result column="level" property="level" />
+        <result column="sort_num" property="sortNum" />
+        <result column="remark" property="remark" />
+        <result column="is_enable" property="isEnable" />
+        <result column="creator" property="creator" />
+        <result column="modifier" property="modifier" />
+        <result column="created" property="created" />
+        <result column="modified" property="modified" />
+        <result column="is_deleted" property="isDeleted" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, city, lng, lat, qu, city_code, parent_code, level, sort_num, remark, is_enable, creator, modifier, created, modified, is_deleted
+    </sql>
+
+</mapper>

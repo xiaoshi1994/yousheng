@@ -1,0 +1,36 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="" underline="true"/>
+                            <#input id="userId" name="用户id" underline="true"/>
+                            <#input id="startPlace" name="开始地点" underline="true"/>
+                            <#input id="endPlace" name="结束地点" underline="true"/>
+                            <#input id="remark" name="备注" underline="true"/>
+                            <#input id="isEnable" name="是否启用,0不启用，1启用"/>
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="creator" name="创建人" underline="true"/>
+                            <#input id="modifier" name="修改人" underline="true"/>
+                            <#input id="created" name="创建时间" underline="true"/>
+                            <#input id="modified" name="最后修改时间" underline="true"/>
+                            <#input id="isDeleted" name="0正常，1删除" underline="true"/>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="PUserCommonTripInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="PUserCommonTripInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/p/pUserCommonTrip/pUserCommonTrip_info.js"></script>
+@}

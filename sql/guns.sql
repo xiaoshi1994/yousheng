@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2019-04-03 19:03:05
+Date: 2019-04-04 12:42:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -4272,7 +4272,7 @@ CREATE TABLE `sys_login_log` (
   `message` text COMMENT '具体消息',
   `ip` varchar(255) DEFAULT NULL COMMENT '登录ip',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=236 DEFAULT CHARSET=utf8 COMMENT='登录记录';
+) ENGINE=InnoDB AUTO_INCREMENT=243 DEFAULT CHARSET=utf8 COMMENT='登录记录';
 
 -- ----------------------------
 -- Records of sys_login_log
@@ -4296,6 +4296,13 @@ INSERT INTO `sys_login_log` VALUES ('232', '登录日志', '1', '2018-12-27 18:2
 INSERT INTO `sys_login_log` VALUES ('233', '退出日志', '1', '2018-12-27 18:22:00', '成功', null, '0:0:0:0:0:0:0:1');
 INSERT INTO `sys_login_log` VALUES ('234', '登录日志', '1', '2018-12-27 18:22:02', '成功', null, '0:0:0:0:0:0:0:1');
 INSERT INTO `sys_login_log` VALUES ('235', '登录日志', '1', '2019-03-27 11:36:22', '成功', null, '0:0:0:0:0:0:0:1');
+INSERT INTO `sys_login_log` VALUES ('236', '登录日志', '1', '2019-04-03 19:14:45', '成功', null, '0:0:0:0:0:0:0:1');
+INSERT INTO `sys_login_log` VALUES ('237', '登录日志', '1', '2019-04-03 19:37:18', '成功', null, '0:0:0:0:0:0:0:1');
+INSERT INTO `sys_login_log` VALUES ('238', '登录日志', '1', '2019-04-03 19:37:18', '成功', null, '0:0:0:0:0:0:0:1');
+INSERT INTO `sys_login_log` VALUES ('239', '登录日志', '1', '2019-04-04 12:08:50', '成功', null, '0:0:0:0:0:0:0:1');
+INSERT INTO `sys_login_log` VALUES ('240', '登录日志', '1', '2019-04-04 12:08:50', '成功', null, '0:0:0:0:0:0:0:1');
+INSERT INTO `sys_login_log` VALUES ('241', '登录日志', '1', '2019-04-04 12:40:42', '成功', null, '0:0:0:0:0:0:0:1');
+INSERT INTO `sys_login_log` VALUES ('242', '登录日志', '1', '2019-04-04 12:40:42', '成功', null, '0:0:0:0:0:0:0:1');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -4316,7 +4323,7 @@ CREATE TABLE `sys_menu` (
   `status` int(65) DEFAULT NULL COMMENT '菜单状态 :  1:启用   0:不启用',
   `isopen` int(11) DEFAULT NULL COMMENT '是否打开:    1:打开   0:不打开',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=173 DEFAULT CHARSET=utf8 COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=199 DEFAULT CHARSET=utf8 COMMENT='菜单表';
 
 -- ----------------------------
 -- Records of sys_menu
@@ -4378,6 +4385,32 @@ INSERT INTO `sys_menu` VALUES ('166', 'to_user_edit', 'mgr', '[0],[system],[mgr]
 INSERT INTO `sys_menu` VALUES ('167', 'mgr_list', 'mgr', '[0],[system],[mgr],', '用户列表', '', '/mgr/list', '10', '3', '0', null, '1', null);
 INSERT INTO `sys_menu` VALUES ('171', '/adv', '0', '[0],', '广告管理', '', '/adv', '10', '1', '1', null, '1', null);
 INSERT INTO `sys_menu` VALUES ('172', '/pAdvAdInfo', '/adv', '[0],[/adv],', '广告信息', '', '/pAdvAdInfo', '1', '2', '1', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('173', 'p', '0', '[0],', '用户管理', '', '#', '5', '1', '1', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('174', '/pTeam', 'p', '[0],[p],', '团队管理', '', '/pTeam', '1', '2', '1', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('175', '/pTeam/add', '/pTeam', '[0],[p],[/pTeam],', '团队添加', '', '/pTeam/add', '1', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('176', '/pTeam/update', '/pTeam', '[0],[p],[/pTeam],', '团队修改', '', '/pTeam/update', '2', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('177', '/pTeam/delete', '/pTeam', '[0],[p],[/pTeam],', '团队删除', '', '/pTeam/delete', '3', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('178', '/pTeamUser', 'p', '[0],[p],', '团队成员管理', '', '/pTeamUser', '2', '2', '1', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('179', '/pTeamUser/add', '/pTeamUser', '[0],[p],[/pTeamUser],', '团队成员添加', '', '/pTeamUser/add', '1', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('180', '/pTeamUser/update', '/pTeamUser', '[0],[p],[/pTeamUser],', '团队成员修改', '', '/pTeamUser/update', '2', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('181', '/pTeamUser/delete', '/pTeamUser', '[0],[p],[/pTeamUser],', '团队成员删除', '', '/pTeamUser/delete', '3', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('182', '/pUserBaseInfo', 'p', '[0],[p],', '用户信息管理', '', '/pUserBaseInfo', '3', '2', '1', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('183', '/pUserBaseInfo/add', '/pUserBaseInfo', '[0],[p],[/pUserBaseInfo],', '用户添加', '', '/pUserBaseInfo/add', '1', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('184', '/pUserBaseInfo/update', '/pUserBaseInfo', '[0],[p],[/pUserBaseInfo],', '用户修改', '', '/pUserBaseInfo/update', '2', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('185', '/pUserBaseInfo/delete', '/pUserBaseInfo', '[0],[p],[/pUserBaseInfo],', '用户删除', '', '/pUserBaseInfo/delete', '3', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('186', 's', '0', '[0],', '行程管理', '', '#', '6', '1', '1', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('187', '/pUserCommonTrip', 's', '[0],[s],', '常用行程管理', '', '/pUserCommonTrip', '1', '2', '1', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('188', '/pUserCommonTrip/add', '/pUserCommonTrip', '[0],[s],[/pUserCommonTrip],', '常用行程的添加', '', '/pUserCommonTrip/add', '1', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('189', '/pUserCommonTrip/update', '/pUserCommonTrip', '[0],[s],[/pUserCommonTrip],', '常用行程的修改', '', '/pUserCommonTrip/update', '2', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('190', '/pUserCommonTrip/delete', '/pUserCommonTrip', '[0],[s],[/pUserCommonTrip],', '常用行程删除', '', '/pUserCommonTrip/delete', '3', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('191', '/sDrivingRecord', 's', '[0],[s],', '订单管理', '', '/sDrivingRecord', '2', '2', '1', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('192', '/sDrivingRecord/add', '/sDrivingRecord', '[0],[s],[/sDrivingRecord],', '订单添加', '', '/sDrivingRecord/add', '2', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('193', '/sDrivingRecord/update', '/sDrivingRecord', '[0],[s],[/sDrivingRecord],', '订单修改', '', '/sDrivingRecord/update', '2', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('194', '/sDrivingRecord/delete', '/sDrivingRecord', '[0],[s],[/sDrivingRecord],', '订单删除', '', '/sDrivingRecord/delete', '3', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('195', '/sDrivingTrajectory', 's', '[0],[s],', '轨迹管理', '', '/sDrivingTrajectory', '3', '2', '1', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('196', '/sDrivingTrajectory/add', '/sDrivingTrajectory', '[0],[s],[/sDrivingTrajectory],', '轨迹添加', '', '/sDrivingTrajectory/add', '2', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('197', '/sDrivingTrajectory/update', '/sDrivingTrajectory', '[0],[s],[/sDrivingTrajectory],', '轨迹修改', '', '/sDrivingTrajectory/update', '2', '3', '0', null, '1', null);
+INSERT INTO `sys_menu` VALUES ('198', '/sDrivingTrajectory/delete', '/sDrivingTrajectory', '[0],[s],[/sDrivingTrajectory],', '轨迹删除', '', '/sDrivingTrajectory/delete', '3', '3', '0', null, '1', null);
 
 -- ----------------------------
 -- Table structure for sys_notice
@@ -4414,7 +4447,7 @@ CREATE TABLE `sys_operation_log` (
   `succeed` varchar(255) DEFAULT NULL COMMENT '是否成功',
   `message` text COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=560 DEFAULT CHARSET=utf8 COMMENT='操作日志';
+) ENGINE=InnoDB AUTO_INCREMENT=588 DEFAULT CHARSET=utf8 COMMENT='操作日志';
 
 -- ----------------------------
 -- Records of sys_operation_log
@@ -4425,6 +4458,34 @@ INSERT INTO `sys_operation_log` VALUES ('556', '业务日志', '菜单新增', '
 INSERT INTO `sys_operation_log` VALUES ('557', '业务日志', '配置权限', '1', 'cn.stylefeng.guns.modular.system.controller.RoleController', 'setAuthority', '2018-12-27 11:06:23', '成功', '角色名称=超级管理员,资源名称=系统管理,用户管理,添加用户,修改用户,删除用户,重置密码,冻结用户,解除冻结用户,分配角色,分配角色跳转,编辑用户跳转,用户列表,角色管理,添加角色,修改角色,删除角色,配置权限,修改角色跳转,角色分配跳转,角色列表,菜单管理,添加菜单,修改菜单,删除菜单,菜单编辑跳转,菜单列表,业务日志,清空日志,日志列表,日志详情,监控管理,部门管理,添加部门,修改部门,删除部门,修改部门跳转,部门列表,部门详情,字典管理,添加字典,修改字典,删除字典,修改菜单跳转,字典列表,字典详情,登录日志,清空登录日志,登录日志列表,通知管理,添加通知,修改通知,删除通知,通知,代码生成,接口文档,广告管理');
 INSERT INTO `sys_operation_log` VALUES ('558', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2018-12-27 11:26:36', '成功', '菜单名称=广告信息');
 INSERT INTO `sys_operation_log` VALUES ('559', '业务日志', '配置权限', '1', 'cn.stylefeng.guns.modular.system.controller.RoleController', 'setAuthority', '2018-12-27 11:26:46', '成功', '角色名称=超级管理员,资源名称=系统管理,用户管理,添加用户,修改用户,删除用户,重置密码,冻结用户,解除冻结用户,分配角色,分配角色跳转,编辑用户跳转,用户列表,角色管理,添加角色,修改角色,删除角色,配置权限,修改角色跳转,角色分配跳转,角色列表,菜单管理,添加菜单,修改菜单,删除菜单,菜单编辑跳转,菜单列表,业务日志,清空日志,日志列表,日志详情,监控管理,部门管理,添加部门,修改部门,删除部门,修改部门跳转,部门列表,部门详情,字典管理,添加字典,修改字典,删除字典,修改菜单跳转,字典列表,字典详情,登录日志,清空登录日志,登录日志列表,通知管理,添加通知,修改通知,删除通知,通知,代码生成,接口文档,广告管理,广告信息');
+INSERT INTO `sys_operation_log` VALUES ('560', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:11:07', '成功', '菜单名称=用户管理');
+INSERT INTO `sys_operation_log` VALUES ('561', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:13:55', '成功', '菜单名称=团队管理');
+INSERT INTO `sys_operation_log` VALUES ('562', '业务日志', '修改菜单', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'edit', '2019-04-04 12:15:44', '成功', '菜单名称=团队管理;;;字段名称:菜单父编号,旧值:0,新值:173');
+INSERT INTO `sys_operation_log` VALUES ('563', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:16:09', '成功', '菜单名称=团队添加');
+INSERT INTO `sys_operation_log` VALUES ('564', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:17:21', '成功', '菜单名称=团队修改');
+INSERT INTO `sys_operation_log` VALUES ('565', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:17:46', '成功', '菜单名称=团队删除');
+INSERT INTO `sys_operation_log` VALUES ('566', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:19:13', '成功', '菜单名称=团队成员管理');
+INSERT INTO `sys_operation_log` VALUES ('567', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:19:44', '成功', '菜单名称=团队成员添加');
+INSERT INTO `sys_operation_log` VALUES ('568', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:20:14', '成功', '菜单名称=团队成员修改');
+INSERT INTO `sys_operation_log` VALUES ('569', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:20:50', '成功', '菜单名称=团队成员删除');
+INSERT INTO `sys_operation_log` VALUES ('570', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:21:50', '成功', '菜单名称=用户信息管理');
+INSERT INTO `sys_operation_log` VALUES ('571', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:22:31', '成功', '菜单名称=用户添加');
+INSERT INTO `sys_operation_log` VALUES ('572', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:23:08', '成功', '菜单名称=用户修改');
+INSERT INTO `sys_operation_log` VALUES ('573', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:23:33', '成功', '菜单名称=用户删除');
+INSERT INTO `sys_operation_log` VALUES ('574', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:26:42', '成功', '菜单名称=行程管理');
+INSERT INTO `sys_operation_log` VALUES ('575', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:28:30', '成功', '菜单名称=常用行程管理');
+INSERT INTO `sys_operation_log` VALUES ('576', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:29:20', '成功', '菜单名称=常用行程的添加');
+INSERT INTO `sys_operation_log` VALUES ('577', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:29:55', '成功', '菜单名称=常用行程的修改');
+INSERT INTO `sys_operation_log` VALUES ('578', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:30:51', '成功', '菜单名称=常用行程删除');
+INSERT INTO `sys_operation_log` VALUES ('579', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:32:31', '成功', '菜单名称=订单管理');
+INSERT INTO `sys_operation_log` VALUES ('580', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:33:37', '成功', '菜单名称=订单添加');
+INSERT INTO `sys_operation_log` VALUES ('581', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:33:57', '成功', '菜单名称=订单修改');
+INSERT INTO `sys_operation_log` VALUES ('582', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:34:21', '成功', '菜单名称=订单删除');
+INSERT INTO `sys_operation_log` VALUES ('583', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:35:53', '成功', '菜单名称=轨迹管理');
+INSERT INTO `sys_operation_log` VALUES ('584', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:36:17', '成功', '菜单名称=轨迹添加');
+INSERT INTO `sys_operation_log` VALUES ('585', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:36:38', '成功', '菜单名称=轨迹修改');
+INSERT INTO `sys_operation_log` VALUES ('586', '业务日志', '菜单新增', '1', 'cn.stylefeng.guns.modular.system.controller.MenuController', 'add', '2019-04-04 12:37:00', '成功', '菜单名称=轨迹删除');
+INSERT INTO `sys_operation_log` VALUES ('587', '业务日志', '配置权限', '1', 'cn.stylefeng.guns.modular.system.controller.RoleController', 'setAuthority', '2019-04-04 12:37:11', '成功', '角色名称=超级管理员,资源名称=系统管理,用户管理,添加用户,修改用户,删除用户,重置密码,冻结用户,解除冻结用户,分配角色,分配角色跳转,编辑用户跳转,用户列表,角色管理,添加角色,修改角色,删除角色,配置权限,修改角色跳转,角色分配跳转,角色列表,菜单管理,添加菜单,修改菜单,删除菜单,菜单编辑跳转,菜单列表,业务日志,清空日志,日志列表,日志详情,监控管理,部门管理,添加部门,修改部门,删除部门,修改部门跳转,部门列表,部门详情,字典管理,添加字典,修改字典,删除字典,修改菜单跳转,字典列表,字典详情,登录日志,清空登录日志,登录日志列表,通知管理,添加通知,修改通知,删除通知,通知,代码生成,接口文档,广告管理,广告信息,用户管理,团队管理,团队添加,团队修改,团队删除,团队成员管理,团队成员添加,团队成员修改,团队成员删除,用户信息管理,用户添加,用户修改,用户删除,行程管理,常用行程管理,常用行程的添加,常用行程的修改,常用行程删除,订单管理,订单添加,订单修改,订单删除,轨迹管理,轨迹添加,轨迹修改,轨迹删除');
 
 -- ----------------------------
 -- Table structure for sys_relation
@@ -4435,7 +4496,7 @@ CREATE TABLE `sys_relation` (
   `menuid` bigint(11) DEFAULT NULL COMMENT '菜单id',
   `roleid` int(11) DEFAULT NULL COMMENT '角色id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3905 DEFAULT CHARSET=utf8 COMMENT='角色和菜单关联表';
+) ENGINE=InnoDB AUTO_INCREMENT=3988 DEFAULT CHARSET=utf8 COMMENT='角色和菜单关联表';
 
 -- ----------------------------
 -- Records of sys_relation
@@ -4460,63 +4521,89 @@ INSERT INTO `sys_relation` VALUES ('3393', '121', '5');
 INSERT INTO `sys_relation` VALUES ('3394', '122', '5');
 INSERT INTO `sys_relation` VALUES ('3395', '150', '5');
 INSERT INTO `sys_relation` VALUES ('3396', '151', '5');
-INSERT INTO `sys_relation` VALUES ('3848', '105', '1');
-INSERT INTO `sys_relation` VALUES ('3849', '106', '1');
-INSERT INTO `sys_relation` VALUES ('3850', '107', '1');
-INSERT INTO `sys_relation` VALUES ('3851', '108', '1');
-INSERT INTO `sys_relation` VALUES ('3852', '109', '1');
-INSERT INTO `sys_relation` VALUES ('3853', '110', '1');
-INSERT INTO `sys_relation` VALUES ('3854', '111', '1');
-INSERT INTO `sys_relation` VALUES ('3855', '112', '1');
-INSERT INTO `sys_relation` VALUES ('3856', '113', '1');
-INSERT INTO `sys_relation` VALUES ('3857', '165', '1');
-INSERT INTO `sys_relation` VALUES ('3858', '166', '1');
-INSERT INTO `sys_relation` VALUES ('3859', '167', '1');
-INSERT INTO `sys_relation` VALUES ('3860', '114', '1');
-INSERT INTO `sys_relation` VALUES ('3861', '115', '1');
-INSERT INTO `sys_relation` VALUES ('3862', '116', '1');
-INSERT INTO `sys_relation` VALUES ('3863', '117', '1');
-INSERT INTO `sys_relation` VALUES ('3864', '118', '1');
-INSERT INTO `sys_relation` VALUES ('3865', '162', '1');
-INSERT INTO `sys_relation` VALUES ('3866', '163', '1');
-INSERT INTO `sys_relation` VALUES ('3867', '164', '1');
-INSERT INTO `sys_relation` VALUES ('3868', '119', '1');
-INSERT INTO `sys_relation` VALUES ('3869', '120', '1');
-INSERT INTO `sys_relation` VALUES ('3870', '121', '1');
-INSERT INTO `sys_relation` VALUES ('3871', '122', '1');
-INSERT INTO `sys_relation` VALUES ('3872', '150', '1');
-INSERT INTO `sys_relation` VALUES ('3873', '151', '1');
-INSERT INTO `sys_relation` VALUES ('3874', '128', '1');
-INSERT INTO `sys_relation` VALUES ('3875', '134', '1');
-INSERT INTO `sys_relation` VALUES ('3876', '158', '1');
-INSERT INTO `sys_relation` VALUES ('3877', '159', '1');
-INSERT INTO `sys_relation` VALUES ('3878', '130', '1');
-INSERT INTO `sys_relation` VALUES ('3879', '131', '1');
-INSERT INTO `sys_relation` VALUES ('3880', '135', '1');
-INSERT INTO `sys_relation` VALUES ('3881', '136', '1');
-INSERT INTO `sys_relation` VALUES ('3882', '137', '1');
-INSERT INTO `sys_relation` VALUES ('3883', '152', '1');
-INSERT INTO `sys_relation` VALUES ('3884', '153', '1');
-INSERT INTO `sys_relation` VALUES ('3885', '154', '1');
-INSERT INTO `sys_relation` VALUES ('3886', '132', '1');
-INSERT INTO `sys_relation` VALUES ('3887', '138', '1');
-INSERT INTO `sys_relation` VALUES ('3888', '139', '1');
-INSERT INTO `sys_relation` VALUES ('3889', '140', '1');
-INSERT INTO `sys_relation` VALUES ('3890', '155', '1');
-INSERT INTO `sys_relation` VALUES ('3891', '156', '1');
-INSERT INTO `sys_relation` VALUES ('3892', '157', '1');
-INSERT INTO `sys_relation` VALUES ('3893', '133', '1');
-INSERT INTO `sys_relation` VALUES ('3894', '160', '1');
-INSERT INTO `sys_relation` VALUES ('3895', '161', '1');
-INSERT INTO `sys_relation` VALUES ('3896', '141', '1');
-INSERT INTO `sys_relation` VALUES ('3897', '142', '1');
-INSERT INTO `sys_relation` VALUES ('3898', '143', '1');
-INSERT INTO `sys_relation` VALUES ('3899', '144', '1');
-INSERT INTO `sys_relation` VALUES ('3900', '145', '1');
-INSERT INTO `sys_relation` VALUES ('3901', '148', '1');
-INSERT INTO `sys_relation` VALUES ('3902', '149', '1');
-INSERT INTO `sys_relation` VALUES ('3903', '171', '1');
-INSERT INTO `sys_relation` VALUES ('3904', '172', '1');
+INSERT INTO `sys_relation` VALUES ('3905', '105', '1');
+INSERT INTO `sys_relation` VALUES ('3906', '106', '1');
+INSERT INTO `sys_relation` VALUES ('3907', '107', '1');
+INSERT INTO `sys_relation` VALUES ('3908', '108', '1');
+INSERT INTO `sys_relation` VALUES ('3909', '109', '1');
+INSERT INTO `sys_relation` VALUES ('3910', '110', '1');
+INSERT INTO `sys_relation` VALUES ('3911', '111', '1');
+INSERT INTO `sys_relation` VALUES ('3912', '112', '1');
+INSERT INTO `sys_relation` VALUES ('3913', '113', '1');
+INSERT INTO `sys_relation` VALUES ('3914', '165', '1');
+INSERT INTO `sys_relation` VALUES ('3915', '166', '1');
+INSERT INTO `sys_relation` VALUES ('3916', '167', '1');
+INSERT INTO `sys_relation` VALUES ('3917', '114', '1');
+INSERT INTO `sys_relation` VALUES ('3918', '115', '1');
+INSERT INTO `sys_relation` VALUES ('3919', '116', '1');
+INSERT INTO `sys_relation` VALUES ('3920', '117', '1');
+INSERT INTO `sys_relation` VALUES ('3921', '118', '1');
+INSERT INTO `sys_relation` VALUES ('3922', '162', '1');
+INSERT INTO `sys_relation` VALUES ('3923', '163', '1');
+INSERT INTO `sys_relation` VALUES ('3924', '164', '1');
+INSERT INTO `sys_relation` VALUES ('3925', '119', '1');
+INSERT INTO `sys_relation` VALUES ('3926', '120', '1');
+INSERT INTO `sys_relation` VALUES ('3927', '121', '1');
+INSERT INTO `sys_relation` VALUES ('3928', '122', '1');
+INSERT INTO `sys_relation` VALUES ('3929', '150', '1');
+INSERT INTO `sys_relation` VALUES ('3930', '151', '1');
+INSERT INTO `sys_relation` VALUES ('3931', '128', '1');
+INSERT INTO `sys_relation` VALUES ('3932', '134', '1');
+INSERT INTO `sys_relation` VALUES ('3933', '158', '1');
+INSERT INTO `sys_relation` VALUES ('3934', '159', '1');
+INSERT INTO `sys_relation` VALUES ('3935', '130', '1');
+INSERT INTO `sys_relation` VALUES ('3936', '131', '1');
+INSERT INTO `sys_relation` VALUES ('3937', '135', '1');
+INSERT INTO `sys_relation` VALUES ('3938', '136', '1');
+INSERT INTO `sys_relation` VALUES ('3939', '137', '1');
+INSERT INTO `sys_relation` VALUES ('3940', '152', '1');
+INSERT INTO `sys_relation` VALUES ('3941', '153', '1');
+INSERT INTO `sys_relation` VALUES ('3942', '154', '1');
+INSERT INTO `sys_relation` VALUES ('3943', '132', '1');
+INSERT INTO `sys_relation` VALUES ('3944', '138', '1');
+INSERT INTO `sys_relation` VALUES ('3945', '139', '1');
+INSERT INTO `sys_relation` VALUES ('3946', '140', '1');
+INSERT INTO `sys_relation` VALUES ('3947', '155', '1');
+INSERT INTO `sys_relation` VALUES ('3948', '156', '1');
+INSERT INTO `sys_relation` VALUES ('3949', '157', '1');
+INSERT INTO `sys_relation` VALUES ('3950', '133', '1');
+INSERT INTO `sys_relation` VALUES ('3951', '160', '1');
+INSERT INTO `sys_relation` VALUES ('3952', '161', '1');
+INSERT INTO `sys_relation` VALUES ('3953', '141', '1');
+INSERT INTO `sys_relation` VALUES ('3954', '142', '1');
+INSERT INTO `sys_relation` VALUES ('3955', '143', '1');
+INSERT INTO `sys_relation` VALUES ('3956', '144', '1');
+INSERT INTO `sys_relation` VALUES ('3957', '145', '1');
+INSERT INTO `sys_relation` VALUES ('3958', '148', '1');
+INSERT INTO `sys_relation` VALUES ('3959', '149', '1');
+INSERT INTO `sys_relation` VALUES ('3960', '171', '1');
+INSERT INTO `sys_relation` VALUES ('3961', '172', '1');
+INSERT INTO `sys_relation` VALUES ('3962', '173', '1');
+INSERT INTO `sys_relation` VALUES ('3963', '174', '1');
+INSERT INTO `sys_relation` VALUES ('3964', '175', '1');
+INSERT INTO `sys_relation` VALUES ('3965', '176', '1');
+INSERT INTO `sys_relation` VALUES ('3966', '177', '1');
+INSERT INTO `sys_relation` VALUES ('3967', '178', '1');
+INSERT INTO `sys_relation` VALUES ('3968', '179', '1');
+INSERT INTO `sys_relation` VALUES ('3969', '180', '1');
+INSERT INTO `sys_relation` VALUES ('3970', '181', '1');
+INSERT INTO `sys_relation` VALUES ('3971', '182', '1');
+INSERT INTO `sys_relation` VALUES ('3972', '183', '1');
+INSERT INTO `sys_relation` VALUES ('3973', '184', '1');
+INSERT INTO `sys_relation` VALUES ('3974', '185', '1');
+INSERT INTO `sys_relation` VALUES ('3975', '186', '1');
+INSERT INTO `sys_relation` VALUES ('3976', '187', '1');
+INSERT INTO `sys_relation` VALUES ('3977', '188', '1');
+INSERT INTO `sys_relation` VALUES ('3978', '189', '1');
+INSERT INTO `sys_relation` VALUES ('3979', '190', '1');
+INSERT INTO `sys_relation` VALUES ('3980', '191', '1');
+INSERT INTO `sys_relation` VALUES ('3981', '192', '1');
+INSERT INTO `sys_relation` VALUES ('3982', '193', '1');
+INSERT INTO `sys_relation` VALUES ('3983', '194', '1');
+INSERT INTO `sys_relation` VALUES ('3984', '195', '1');
+INSERT INTO `sys_relation` VALUES ('3985', '196', '1');
+INSERT INTO `sys_relation` VALUES ('3986', '197', '1');
+INSERT INTO `sys_relation` VALUES ('3987', '198', '1');
 
 -- ----------------------------
 -- Table structure for sys_role

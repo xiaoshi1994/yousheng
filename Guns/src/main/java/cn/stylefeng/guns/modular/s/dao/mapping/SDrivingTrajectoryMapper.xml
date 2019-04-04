@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.s.dao.SDrivingTrajectoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.s.model.SDrivingTrajectory">
+        <id column="id" property="id" />
+        <result column="drive_id" property="driveId" />
+        <result column="lng_rat" property="lngRat" />
+        <result column="lat_rat" property="latRat" />
+        <result column="creator" property="creator" />
+        <result column="created" property="created" />
+        <result column="is_deleted" property="isDeleted" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, drive_id, lng_rat, lat_rat, creator, created, is_deleted
+    </sql>
+
+</mapper>

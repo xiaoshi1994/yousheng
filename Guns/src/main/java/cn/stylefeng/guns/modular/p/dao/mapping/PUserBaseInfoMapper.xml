@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.p.dao.PUserBaseInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.p.model.PUserBaseInfo">
+        <id column="id" property="id" />
+        <result column="user_sn" property="userSn" />
+        <result column="mobile" property="mobile" />
+        <result column="password" property="password" />
+        <result column="salt" property="salt" />
+        <result column="nickname" property="nickname" />
+        <result column="head_thumb" property="headThumb" />
+        <result column="location_area" property="locationArea" />
+        <result column="region" property="region" />
+        <result column="synopsis" property="synopsis" />
+        <result column="license_plate_number" property="licensePlateNumber" />
+        <result column="starts" property="starts" />
+        <result column="identity_card" property="identityCard" />
+        <result column="integral" property="integral" />
+        <result column="identity" property="identity" />
+        <result column="openid" property="openid" />
+        <result column="unionid" property="unionid" />
+        <result column="app_open_id" property="appOpenId" />
+        <result column="token" property="token" />
+        <result column="name" property="name" />
+        <result column="sex" property="sex" />
+        <result column="money" property="money" />
+        <result column="my_invite" property="myInvite" />
+        <result column="pid" property="pid" />
+        <result column="level" property="level" />
+        <result column="sort_num" property="sortNum" />
+        <result column="remark" property="remark" />
+        <result column="is_enable" property="isEnable" />
+        <result column="creator" property="creator" />
+        <result column="modifier" property="modifier" />
+        <result column="created" property="created" />
+        <result column="modified" property="modified" />
+        <result column="is_deleted" property="isDeleted" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_sn, mobile, password, salt, nickname, head_thumb, location_area, region, synopsis, license_plate_number, starts, identity_card, integral, identity, openid, unionid, app_open_id, token, name, sex, money, my_invite, pid, level, sort_num, remark, is_enable, creator, modifier, created, modified, is_deleted
+    </sql>
+
+</mapper>

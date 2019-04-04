@@ -1,0 +1,58 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="" underline="true"/>
+                            <#input id="userSn" name="用户编号" underline="true"/>
+                            <#input id="mobile" name="用户手机号" underline="true"/>
+                            <#input id="password" name="密码" underline="true"/>
+                            <#input id="salt" name="md5密码盐（考虑到APP端密码加密规则的兼容性，此值暂不使用）" underline="true"/>
+                            <#input id="nickname" name="" underline="true"/>
+                            <#input id="headThumb" name="头像" underline="true"/>
+                            <#input id="locationArea" name="位置数据" underline="true"/>
+                            <#input id="region" name="地区" underline="true"/>
+                            <#input id="synopsis" name="个人介绍" underline="true"/>
+                            <#input id="licensePlateNumber" name="车牌号" underline="true"/>
+                            <#input id="starts" name="状态：1：正常使用，2：等在认证: 3：被冻结" underline="true"/>
+                            <#input id="identityCard" name="身份证号码" underline="true"/>
+                            <#input id="integral" name="信用分" underline="true"/>
+                            <#input id="identity" name="用户身份，1：乘客；2：司机" underline="true"/>
+                            <#input id="openid" name="微信openid" underline="true"/>
+                            <#input id="unionid" name="微信授权用户唯一标识"/>
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="appOpenId" name="app的openid" underline="true"/>
+                            <#input id="token" name="融云token" underline="true"/>
+                            <#input id="name" name="姓名" underline="true"/>
+                            <#input id="sex" name="性别，1男，2女，保密" underline="true"/>
+                            <#input id="money" name="用户佣金余额" underline="true"/>
+                            <#input id="myInvite" name="我的邀请码" underline="true"/>
+                            <#input id="pid" name="推荐人" underline="true"/>
+                            <#input id="level" name="层级数，0,1,2,3,4...." underline="true"/>
+                            <#input id="sortNum" name="排序" underline="true"/>
+                            <#input id="remark" name="备注" underline="true"/>
+                            <#input id="isEnable" name="是否启用,0不启用，1启用" underline="true"/>
+                            <#input id="creator" name="创建人" underline="true"/>
+                            <#input id="modifier" name="修改人" underline="true"/>
+                            <#input id="created" name="创建时间" underline="true"/>
+                            <#input id="modified" name="最后修改时间" underline="true"/>
+                            <#input id="isDeleted" name="0正常，1删除" underline="true"/>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="PUserBaseInfoInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="PUserBaseInfoInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/p/pUserBaseInfo/pUserBaseInfo_info.js"></script>
+@}

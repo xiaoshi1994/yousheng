@@ -1,0 +1,39 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                            <#input id="id" name="" value="${item.id}" underline="true"/>
+                            <#input id="name" name="团队名称" value="${item.name}" underline="true"/>
+                            <#input id="userId" name="队长id" value="${item.userId}" underline="true"/>
+                            <#input id="answerCount" name="总接单数量" value="${item.answerCount}" underline="true"/>
+                            <#input id="status" name="状态：1：待审核  2：正常运行  3：被锁定   4：审核驳回" value="${item.status}" underline="true"/>
+                            <#input id="creator" name="" value="${item.creator}" underline="true"/>
+                            <#input id="modifier" name="" value="${item.modifier}" />
+                </div>
+
+                <div class="col-sm-6">
+                            <#input id="created" name="" value="${item.created}" underline="true"/>
+                            <#input id="modified" name="" value="${item.modified}" underline="true"/>
+                            <#input id="isDeleted" name="" value="${item.isDeleted}" underline="true"/>
+                            <#input id="isEnable" name="" value="${item.isEnable}" underline="true"/>
+                            <#input id="money" name="总金额" value="${item.money}" underline="true"/>
+                            <#input id="finishAnswerCount" name="总完成数量" value="${item.finishAnswerCount}" underline="true"/>
+                            <#input id="descs" name="描述，包含审核失败的原因" value="${item.descs}" />
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="PTeamInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="PTeamInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/p/pTeam/pTeam_info.js"></script>
+@}
